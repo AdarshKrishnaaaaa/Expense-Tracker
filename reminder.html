@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expensio</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn.pixabay.com/photo/2015/01/05/19/50/apple-589641_640.png">
+  <link rel="stylesheet" href="reminder.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .nav-items {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-items a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .main-body {
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .nav-items {
+        display: none;
+        flex-direction: column;
+        background: #121212;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 45%;
+        padding: 10px;
+      }
+
+      .nav-items a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-logo">
+      <img src="https://cdn.pixabay.com/photo/2015/01/05/19/50/apple-589641_640.png" alt="Logo">
+      <span class="text-lg font-bold">Expensio</span>
+    </div>
+    <div class="menu-btn" id="menuBtn">&#9776;</div>
+    <div class="nav-items" id="navItems">
+      <a href="./home.html" class="nav-item"><img class="homeIcon" src="https://cdn-icons-png.flaticon.com/128/10266/10266920.png" alt=""></a>
+            <a href="./expense.html" class="nav-item">Transactions</a>
+            <a href="./paymentHistory.html" class="nav-item">History</a>
+            <a href="#" class="nav-item" onclick="signOutBtn()">Sign Out</a>
+    </div>
+  </nav>
+  
+  <div class="main-body">
+    <div class="container">
+      <h1>Reminder</h1>
+      <form id="expenseForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Enter expense Title" required />
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" placeholder="Enter amount" required />
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" id="time" required />
+        </div>
+        <button type="button" class="button" onclick="scheduleReminder()">Set Reminder</button>
+      </form>
+      
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Date & Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="reminderTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <audio src="./Audio/notificationSound.mp3" id="notificationSound"></audio>
+
+  <script>
+    document.getElementById("menuBtn").addEventListener("click", function() {
+      const navItems = document.getElementById("navItems");
+      navItems.style.display = navItems.style.display === "flex" ? "none" : "flex";
+    });
+  </script>
+  <script src="reminder.js"></script>
+</body>
+</html>

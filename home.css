@@ -1,0 +1,280 @@
+/* Global Styles */
+body {
+    background-image: url(./Images/bg.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: brightness(0.5);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main Content Area */
+#rightContentArea {
+    position: relative;
+    left: 15%;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121212;
+    padding: 1rem 2rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-logo img {
+    width: 40px;
+}
+
+.nav-items {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu */
+#mobileMenu{
+    width: 40%;
+    background-color: #121212;
+    justify-self: end;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.py-2{
+    display: flex;
+    justify-content: end;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        background-color: #121212;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-items.active {
+        display: flex;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* User Name Styling */
+#Name {
+    color: aliceblue;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+/* Cards */
+.card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.yellow-card {
+    background-color: #fefcbf;
+}
+
+.green-card {
+    background-color: #d1fae5;
+}
+
+.blue-card {
+    background-color: #bfdbfe;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Fix Rounded Class Name */
+.rounded {
+    display: flex;
+    justify-content: center;
+}
+
+/* Home Poster Section */
+.homePoster {
+    position: relative;
+    top: 80px;
+    width: 100%;
+    height: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .homePoster {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+/* Expensio Name */
+.siteName {
+    font-size: 60px;
+    font-weight: bolder;
+    position: relative;
+    animation-name: slide-in;
+    animation-duration: 1s;
+}
+
+@keyframes slide-in {
+    0% {
+        right: -200px;
+        top: 0px;
+    }
+
+    100% {
+        right: 0px;
+        top: 0px;
+    }
+}
+
+/* Expensio Quote */
+.siteQuote {
+    font-size: 1.5rem;
+    font-weight: 500;
+    position: relative;
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+@media (min-width: 768px) {
+    .siteQuote {
+        font-size: 2rem;
+    }
+}
+
+/* Site Image Animation */
+.siteImage {
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Chart Section */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .siteName {
+        font-size: 40px;
+    }
+
+    .siteQuote {
+        font-size: 1.2rem;
+    }
+
+    .homePoster {
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 0.8rem;
+    }
+}
+
+/* Site Content */
+.siteContents {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .siteContents {
+        align-items: flex-start;
+    }
+}

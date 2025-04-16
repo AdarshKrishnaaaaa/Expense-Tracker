@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expensio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="./Images/logo.webp">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between px-6 py-4 shadow-md" style="background-color: #121212;">
+        <div class="flex items-center space-x-3">
+            <img src="./Images/logo.webp" alt="Logo" class="h-10">
+            <span class="text-lg font-bold">Expensio</span>
+        </div>
+        <div class="sm:hidden">
+            <button id="menuBtn" class="text-white text-2xl">&#9776;</button>
+        </div>
+        <div id="navItems" class="hidden sm:flex space-x-6">
+            <a href="./expense.html" class="nav-item hover:text-yellow-300">Transactions</a>
+            <a href="./reminder.html" class="nav-item hover:text-yellow-300">Reminder</a>
+            <a href="./paymentHistory.html" class="nav-item hover:text-yellow-300">History</a>
+            <a href="#" class="nav-item hover:text-red-400" onclick="signOutBtn()">Sign Out</a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden flex-col bg-gray-800 p-4 sm:hidden">
+        <a href="./expense.html" class="py-2 text-center hover:text-yellow-300">Transactions</a>
+        <a href="./reminder.html" class="py-2 text-center hover:text-yellow-300">Reminder</a>
+        <a href="./paymentHistory.html" class="py-2 text-center hover:text-yellow-300">History</a>
+        <a href="#" class="py-2 text-center hover:text-red-400" onclick="signOutBtn()">Sign Out</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="flex flex-col sm:flex-row items-center justify-center p-6 text-center sm:text-left">
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/financial-expenses-5706069-4755624.png" alt="" class="w-60 sm:w-80">
+        <div class="mt-6 sm:mt-0 sm:ml-6">
+            <p class="text-3xl font-bold text-yellow-400">Expensio</p>
+            <p class="mt-2 text-lg">"Tracking today ensures a better tomorrow."</p>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="w-full p-6 bg-[url('money.jpg')] bg-cover bg-center">
+        <div class="p-6 rounded-lg shadow-lg">
+            <p class="text-3xl font-bold">Welcome <span id="Name"></span></p>
+            
+            <!-- Cards Section -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="p-4 rounded-lg bg-yellow-500 text-black shadow-md">
+                    <p class="font-semibold text-lg">Total Expense</p>
+                    <p id="totalExpense" class="text-2xl font-bold">&#8377; 0</p>
+                </div>
+                <div class="p-4 rounded-lg bg-green-500 text-black shadow-md">
+                    <p class="font-semibold text-lg">Total Income</p>
+                    <p id="totalIncome" class="text-2xl font-bold">&#8377; 0</p>
+                </div>
+                <div class="p-4 rounded-lg bg-blue-500 text-black shadow-md">
+                    <p class="font-semibold text-lg">Net Worth</p>
+                    <p id="netWorth" class="text-2xl font-bold">&#8377; 0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="flex flex-col sm:flex-row gap-6 mt-6" style="justify-content: center;">
+            <div class="w-full sm:w-1/2 p-6 rounded-lg shadow-lg">
+                <h2 class="text-xl font-bold">Expense vs Income</h2>
+                <canvas id="expenseIncomeChart" class="w-full h-64"></canvas>
+            </div>
+        </div>        
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuBtn').addEventListener('click', function () {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+    <script src="home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+/* Basic styling for the body */
+body {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+/* Container for centering content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Animated text */
+.animate-text {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: slideInFromTop 2s ease-out forwards;
+    margin-bottom: 20px;
+}
+
+/* Slide-in animation */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styling for the button */
+.btn-custom {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn-custom:hover {
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .animate-text {
+        font-size: 2.5rem;
+    }
+    .btn-custom {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .animate-text {
+        font-size: 2rem;
+    }
+    .btn-custom {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .animate-text {
+        font-size: 1.5rem;
+    }
+    .btn-custom {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+    }
+}
